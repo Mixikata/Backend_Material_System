@@ -61,14 +61,4 @@ public class ProjectController {
         }
         return Result.success("删除成功");
     }
-
-    //查看项目分析结果
-    @GetMapping("/check")
-    public Result check(@RequestParam Long projectId) {
-        Project project = projectService.getOne(new LambdaQueryWrapper<Project>().eq(Project::getProjectId, projectId));
-        if (project == null) {
-            return Result.error("该项目不存在");
-        }
-        return Result.success(project);
-    }
 }

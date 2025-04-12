@@ -1,2 +1,0 @@
-# Backend_Material_System
-材料分析项目后端,负责人陈梦洋
