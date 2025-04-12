@@ -41,12 +41,17 @@ public class ProjectController {
 
     //项目分析结果搜索
     @GetMapping("/select")
-    public Result select(Long projectId) {
-        Project project = projectService.getOne(new LambdaQueryWrapper<Project>().eq(Project::getProjectId, projectId));
-        if (project == null) {
+    public Result select(String projectName) {
+        List<Project> projects = projectService.list(new LambdaQueryWrapper<Project>().like(Project::getProjectName, projectName));
+        if (projects.isEmpty()) {
             return Result.error("该项目不存在");
         }
-        return Result.success(project);
+        return Result.success(projects.stream()
+                .map(project -> {
+                    ProjectVo projectVo = new ProjectVo();
+                    BeanUtils.copyProperties(project, projectVo);
+                    return projectVo;
+                }).toList());
     }
 
     //项目分析结果删除
@@ -60,5 +65,15 @@ public class ProjectController {
             projectService.removeById(projectId);
         }
         return Result.success("删除成功");
+    }
+
+    //查看项目分析结果
+    @GetMapping("/check")
+    public Result check(@RequestParam Long projectId) {
+        Project project = projectService.getOne(new LambdaQueryWrapper<Project>().eq(Project::getProjectId, projectId));
+        if (project == null) {
+            return Result.error("该项目不存在");
+        }
+        return Result.success(project);
     }
 }
