@@ -12,12 +12,12 @@ import java.util.List;
 
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
-    @Override
+    /*@Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new MyInterceptor())
                 .addPathPatterns("/")          // 拦截路径
                 .excludePathPatterns("/login");  // 排除路径
-    }
+    }*/
     @Override
     public void extendMessageConverters(List<HttpMessageConverter<?>> converters){
         MappingJackson2HttpMessageConverter messageConverter = new MappingJackson2HttpMessageConverter();
