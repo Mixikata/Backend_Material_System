@@ -1,0 +1,29 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    cursor: default;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    font: 14px/1.5 "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    background-color: #EAEAEF;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+i,
+em {
+    font-style: normal;
+}
+
+h4 {
+    font-weight: normal;
+}

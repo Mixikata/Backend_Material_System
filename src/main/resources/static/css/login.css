@@ -1,0 +1,78 @@
+body {
+    background-image: url('../image/login.png')
+}
+
+.login {
+    margin: auto;
+    margin-top: 118px;
+    width: 513px;
+    height: 598px;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 25px;
+    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.25);
+}
+
+.login-form {
+    position: relative;
+    margin: auto;
+    padding-top: 106px;
+    width: 431px;
+    height: 457px;
+}
+
+.login-form input {
+    padding-left: 18px;
+    width: 431px;
+    height: 50px;
+    border: 3px solid rgb(140, 140, 140);
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(166, 166, 166);
+}
+
+.back {
+    position: absolute;
+    left: -20px;
+    top: 30px;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(65, 65, 65);
+    display: none;
+}
+
+.username {
+    margin-bottom: 72px;
+}
+
+.password {
+    margin-bottom: 108px;
+}
+
+.login-btn {
+    margin-bottom: 83px;
+    width: 431px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    background: rgb(82, 134, 255);
+    box-shadow: 0px 2px 5px rgb(82, 134, 255);
+    font-size: 36px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    line-height: 50px;
+    cursor: pointer;
+}
+
+.reg {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(140, 179, 255);
+    cursor: pointer;
+}
+
+.password-confirm {
+    display: none;
+    margin-bottom: 65px;
+}

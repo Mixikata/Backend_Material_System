@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主界面</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/content.css">
+    <link rel="stylesheet" href="./icon-font/iconfont.css">
+</head>
+
+<body>
+    <div class="w">
+        <nav><!--侧边栏-->
+            <ul>
+                <li class="selected"><a href="#" data-num="1"><span class="iconfont icon-plus" data-num="1"></span><i
+                            data-num="1">新建项目</i></a>
+                </li>
+                <li><a href="#" data-num="2"><span class="iconfont icon-menu" data-num="2"></span><i
+                            data-num="2">项目管理</i></a>
+                </li>
+                <li><a href="#" data-num="3"><span class="iconfont icon-tiaoxingtu" data-num="3"></span><i
+                            data-num="3">数据可视化</i></a>
+                </li>
+                <li><a href="#" data-num="4"><span class="iconfont icon-shezhi" data-num="4"></span><i
+                            data-num="4">设置</i></a>
+                </li>
+            </ul>
+        </nav>
+        <header><!--顶部栏-->
+            <form action="">
+                <div class="search">
+                    <input type="text" class="search-bar" placeholder="搜索项目"><span class="iconfont icon-search"></span>
+                </div>
+            </form>
+            <div class="user">
+                <span class="iconfont icon-user"></span>
+                <i>用户名</i>
+            </div>
+        </header>
+        <div class="current"><!--三角标识-->
+            <div class="current-a">
+                <i>新建项目</i>
+                <div class="triangle-a"></div>
+            </div>
+            <div class="current-b">
+                <div class="triangle-b"></div>
+            </div>
+        </div>
+        <div class="main"><!--主要区域-->
+            <div class="New active"><!--新建项目-->
+                <form class=info action="">
+                    <li><!--项目名称-->
+                        <h4>项目名称</h4>
+                        <input type="text">
+                    </li>
+                    <li><!--颜色-->
+                        <h4>颜色</h4>
+                        <select>
+                            <option value=""></option>
+                            <option value="">白色</option>
+                            <option value="">褐色</option>
+                            <option value="">黑色</option>
+                            <option value="">红色</option>
+                            <option value="">灰色</option>
+                            <option value="">蓝色</option>
+                            <option value="">绿色</option>
+                            <option value="">无色</option>
+                            <option value="">暗灰色</option>
+                            <option value="">暗棕色</option>
+                            <option value="">淡黄色</option>
+                            <option value="">钢灰色</option>
+                            <option value="">黑灰色</option>
+                            <option value="">灰白色</option>
+                            <option value="">灰蓝色</option>
+                            <option value="">金黄色</option>
+                            <option value="">浅灰色</option>
+                            <option value="">银白色</option>
+                            <option value="">银灰色</option>
+                            <option value="">紫黑色</option>
+                            <option value="">紫红色</option>
+                            <option value="">灰色和红色</option>
+                            <option value="">银白色至粉红色</option>
+                        </select>
+                    </li>
+                    <li><!--密度-->
+                        <h4>密度</h4>
+                        <input type="text">
+                    </li>
+                    <li><!--熔点-->
+                        <h4>熔点</h4>
+                        <input type="text">
+                    </li>
+                    <li><!--沸点-->
+                        <h4>沸点</h4>
+                        <input type="text">
+                    </li>
+                    <li><!--比热容-->
+                        <h4>比热容</h4>
+                        <input type="text">
+                    </li>
+                    <li><!--电阻率-->
+                        <h4>电阻率</h4>
+                        <input type="text">
+                    </li>
+                    <li><!--硬度-->
+                        <h4>硬度</h4>
+                        <input type="text">
+                    </li>
+                    <li><!--热膨胀系数-->
+                        <h4>热膨胀系数</h4>
+                        <input type="text">
+                    </li>
+                    <li><!--屈服强度-->
+                        <h4>屈服强度</h4>
+                        <input type="text">
+                    </li>
+                    <li><!--抗拉强度-->
+                        <h4>抗拉强度</h4>
+                        <input type="text">
+                    </li>
+                    <li><!--延展率-->
+                        <h4>延展率</h4>
+                        <input type="text">
+                    </li>
+                    <li><!--冲击韧性-->
+                        <h4>冲击韧性</h4>
+                        <input type="text">
+                    </li>
+                    <li><!--刚性-->
+                        <h4>刚性</h4>
+                        <input type="text">
+                    </li>
+                    <li><!--疲劳强度-->
+                        <h4>疲劳强度</h4>
+                        <input type="text">
+                    </li>
+                    <li><!--热值-->
+                        <h4>热值</h4>
+                        <input type="text">
+                    </li>
+                    <li><!--杨氏模量-->
+                        <h4>杨氏模量</h4>
+                        <input type="text">
+                    </li>
+                    <button type="submit">开始分析</button>
+                </form>
+            </div>
+            <div class="Management"><!--项目管理-->
+                <div class="btnRow Mitem">
+                    <button>批量管理</button>
+                </div>
+                <div class="Result">
+                    <button>返回</button>
+                </div>
+            </div>
+            <div class="Visual"><!--数据可视化-->
+                <div>
+                    <li><input type="checkbox"></li>
+                    <li>项目名称</li>
+                    <li>查看结果</li>
+                </div>
+                <div>
+                    <li><input type="checkbox"></li>
+                    <li>项目名称</li>
+                    <li>查看结果</li>
+                </div>
+                <button>生成图像</button>
+            </div>
+            <div class="Setting"><!--设置-->
+                <div>
+                    <span class="iconfont icon-yonghu"></span>
+                    个人资料
+                </div>
+                <div>
+                    <span class="iconfont icon-anquan"></span>
+                    账户与安全
+                </div>
+                <div>
+                    <span class="iconfont icon-fankui"></span>
+                    功能反馈
+                </div>
+                <div>
+                    <span class="iconfont icon-quanxian"></span>
+                    权限说明
+                </div>
+                <div>
+                    <span class="iconfont icon-tuichu"></span>
+                    退出登录
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./JS/main.js"></script>
+</body>
+
+</html>

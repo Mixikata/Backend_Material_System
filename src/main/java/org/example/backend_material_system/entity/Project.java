@@ -1,11 +1,13 @@
 package org.example.backend_material_system.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
 public class Project implements Serializable {
+    @TableId
     private Long projectId;              // 项目ID（主键）
     private String projectName;          // 项目名称（主键）
     private String color;                // 颜色
