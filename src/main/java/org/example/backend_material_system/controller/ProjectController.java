@@ -56,13 +56,13 @@ public class ProjectController {
 
     //项目分析结果删除
     @DeleteMapping("/delete")
-    public Result delete(@RequestParam List<Long> projectIds) {
-        for (Long projectId : projectIds) {
-            Project project = projectService.getOne(new LambdaQueryWrapper<Project>().eq(Project::getProjectId, projectId));
+    public Result delete(@RequestParam List<Long> projectId) {
+        for (Long id : projectId) {
+            Project project = projectService.getOne(new LambdaQueryWrapper<Project>().eq(Project::getProjectId, id));
             if (project == null) {
                 return Result.error("该项目不存在");
             }
-            projectService.removeById(projectId);
+            projectService.removeById(id);
         }
         return Result.success("删除成功");
     }

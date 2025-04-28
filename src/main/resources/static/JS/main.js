@@ -36,7 +36,6 @@ sideList.addEventListener('click', function (e) {
             document.querySelector("header form").style.visibility = "hidden"
         }
         if (VisualButton.offsetTop - VisualLast.offsetTop < 80 && SWITCH[3] === 1) {
-            console.log('correct')
             VisualButton.style.position = 'relative'
             VisualButton.style.marginTop = '60px'
         }
@@ -133,7 +132,7 @@ NewForm.addEventListener('submit', function (e) {
 })
 //项目管理渲染
 const Management = document.querySelector('.Management')
-async function render(judge, searchName) {
+async function render(judge, searchName=0) {
     let result = {}
     if (judge === 1)
         result = await axios({
@@ -155,14 +154,16 @@ async function render(judge, searchName) {
     btnRow.appendChild(newBTN2)
     newBTN1.style.display = "none"
     newBTN2.style.display = "none"
-    for (let i = 0; i < result.length; i++) {
+    for (let i = 0; i < result.data.data.length; i++) {
         const div = document.createElement('div')
         div.classList.add("Mitem")
         div.innerHTML =
-            `<li><input type="checkbox" data-id=${result.projectId}></li>
-            <li class="projectName">项目名称</li>
-            <li class="checkResult" data-name=${result.projectName}>查看结果</li>
-            <li><span class="iconfont icon-shanchu" data-id=${result.projectId}></span></li>`
+            `<li><input type="checkbox" data-projectId=${result.data.data[i].projectId}></li>
+            <li class="projectName">${result.data.data[i].projectName}</li>
+            <li class="">${result.data.data[i].projectId}</li>
+            <li class="">${result.data.data[i].createTime}</li>
+            <li class="checkResult" data-name=${result.data.data[i].projectName}>查看结果</li>
+            <li><span class="iconfont icon-shanchu" data-projectId=${result.projectId}></span></li>`
         Management.appendChild(div)
         if (BTNswitch === 0) {
             BTNswitch = 1
@@ -174,11 +175,10 @@ async function render(judge, searchName) {
 //项目管理删除
 Management.addEventListener('click', function (e) {
     if (e.target.className === 'iconfont icon-shanchu') {
-        console.log(5)
         axios({
             url: 'http://localhost:8080/project/delete',
             method: 'DELETE',
-            params: e.target.dataset.id
+            params: e.target.dataset.projectId
         }).then(result => {
             render(1)
         })
@@ -218,7 +218,7 @@ newBTN2.addEventListener('click', function (e) {
     })
 })
 //项目管理搜索
-document.querySelector('.search-bar').addEventListener('change', function (e) {
+document.querySelector('.search-bar').addEventListener('input', function (e) {
 
     render(2, e.target.value)
 })
@@ -233,8 +233,8 @@ document.querySelectorAll('.checkResult').forEach(item => item.addEventListener(
         resultPage.innerHTML =
             `<button>返回</button>
             <div>${result.projectName}</div>
-            <div>创建时间:${result.createTime}</div>
-            <div>分析结果:${result.analysisResult}</div>`
+            <div>创建时间:${result.data.data.createTime}</div>
+            <div>分析结果:${result.data.data.analysisResult}</div>`
         const backBtn = document.querySelector('.Result button')
     })
 }))
