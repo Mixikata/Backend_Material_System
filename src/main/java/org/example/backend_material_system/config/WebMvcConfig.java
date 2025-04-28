@@ -1,11 +1,9 @@
 package org.example.backend_material_system.config;
 
 import org.example.backend_material_system.common.JacksonObjectMapper;
-import org.example.backend_material_system.common.MyInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.List;
