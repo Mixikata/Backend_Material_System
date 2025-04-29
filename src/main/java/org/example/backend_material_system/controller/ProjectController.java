@@ -22,10 +22,11 @@ public class ProjectController {
     //分析项目并添加结果到数据库
     @PostMapping("/analysis")
     public Result analysis(@RequestBody Project project) {
-        String analysisResult = InvokeUtil.invoke();
-        project.setAnalysisResult(analysisResult);
+        String[] result = InvokeUtil.invoke(project);
+        project.setAnalysisResult(result[0]);
+        project.setResultImage(result[1]);
         projectService.save(project);
-        return Result.success(analysisResult);
+        return Result.success();
     }
 
     //历史项目查询
