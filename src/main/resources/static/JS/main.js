@@ -130,6 +130,7 @@ NewForm.addEventListener('submit', function (e) {
     this.reset()
 })
 //项目管理渲染
+const resultPage=document.querySelector('.Result')
 const Management = document.querySelector('.Management')
 async function render(judge, searchName = 0) {
     let result = {}
@@ -168,6 +169,49 @@ async function render(judge, searchName = 0) {
             MBTNclick()
         }
     }
+    document.querySelectorAll('.checkResult').forEach(item => item.addEventListener('click', function (e) {
+
+        axios({
+            url: 'http://localhost:8080/project/check',
+            params: {
+                projectId: e.target.dataset.projectId
+            }
+        }).then(result => {
+            document.querySelector('.Mitem').style.display = "none"
+
+            resultPage.style.display = "block"
+            resultPage.innerHTML =
+                `<button>返回</button>
+            <div>项目名称:${result.data.data.projectName}</div>
+            <div>创建时间:${result.data.data.createTime}</div>
+            <div>颜色:${result.data.data.color}</div>
+            <div>密度:${result.data.data.density}</div>
+            <div>熔点:${result.data.data.melting}</div>
+            <div>沸点:${result.data.data.boilingPoint}</div>
+            <div>比热容:${result.data.data.heatCap}</div>
+            <div>电阻率:${result.data.data.resistivity}</div>
+            <div>硬度:${result.data.data.hard}</div>
+            <div>热膨胀系数:${result.data.data.expansion}</div>
+            <div>屈服强度:${result.data.data.yieldStrength}</div>
+            <div>抗拉强度:${result.data.data.tensileStrength}</div>
+            <div>延展率:${result.data.data.elongation}</div>
+            <div>冲击韧性:${result.data.data.impactToughness}</div>
+            <div>疲劳强度:${result.data.data.fatigueStrength}</div>
+            <div>热值:${result.data.data.caloricValue}</div>
+            <div>杨氏模量:${result.data.data.young}</div>
+            <div>分析结果:${result.data.data.analysisResult}</div>
+            <div>结果图片:</br>
+            <img src="data:image/jpg;base64,${result.data.data.resultImage}">
+            </div>`
+            const backBtn = document.querySelector('.Result button')
+        })
+    }))
+//项目管理内容页返回
+    document.querySelector('.Result button').addEventListener('click', function () {
+        resultPage.innerHTML = ``
+        resultPage.style.display = "none"
+        document.querySelectorAll('.Mitem').forEach(item => { item.style.display = "flex" })
+    })
 }
 
 //项目管理删除
@@ -237,7 +281,9 @@ document.querySelector('header button').addEventListener('click', function (e) {
     render(1)
 })
 //项目管理内容查看
+
 document.querySelectorAll('.checkResult').forEach(item => item.addEventListener('click', function (e) {
+
     axios({
         url: 'http://localhost:8080/project/check',
         params: {

@@ -26,7 +26,10 @@ public class InvokeUtil {
             result.append("材料: ").append(res.getMaterial()).append(", 概率: ").append(res.getProbability()).append(", 索引: ").append(res.getIndex()).append("\n");
         }
         results[0] = result.toString();
-        results[1] = analysisResult.getResultImage();
+        if(analysisResult.getResult_image() == null) {
+            log.info("image is null");
+        }
+        results[1] = analysisResult.getResult_image();
         return results;
     }
 }

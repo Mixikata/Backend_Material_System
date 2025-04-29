@@ -6,5 +6,5 @@ import lombok.Data;
 public class AnalysisResult {
     private boolean success;
     private Result[] results;
-    private String resultImage;
+    private String result_image;
 }

@@ -126,7 +126,7 @@ header form {
 .user i {
     text-wrap: nowrap;
     font-size: 18px;
-    font-weight: 700px;
+    font-weight: 700;
     line-height: 32px;
     margin-left: 12px;
 }
@@ -180,7 +180,7 @@ header form {
     margin: auto;
     padding-left: 30px;
     font-size: 48px;
-    font-weight: 700px;
+    font-weight: 700;
     color: white;
     line-height: 88px;
     text-wrap: nowrap;
