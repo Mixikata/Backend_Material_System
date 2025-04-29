@@ -61,16 +61,34 @@ header {
     padding-top: 20px;
 }
 
+header button {
+    visibility: hidden;
+    margin-left: 475px;
+    margin-top: -1px;
+    width: 50px;
+    height: 30px;
+    border-radius: 10px;
+    background: rgb(46, 46, 46);
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+}
+
 header form {
     visibility: hidden;
 }
 
 .search {
     position: relative;
-    margin-left: 500px;
+    margin-left: 25px;
     display: flex;
     width: 700px;
     height: 30px;
+}
+
+.search label {
+    margin-left: -30px;
+    width: 30px;
 }
 
 .search-bar {
@@ -316,16 +334,26 @@ header form {
 }
 
 .Management div li:nth-child(2) {
-    margin-right: 640px;
+    width: 450px;
+    margin-right: 10px;
+    text-align: left;
+    text-overflow: ellipsis;
     cursor: default;
 }
 
 .Management div li:nth-child(3) {
+    width: 110px;
+    font-size: 10px;
+    color: #4b4b4b;
+    margin-right: 70px;
+}
+
+.Management div li:nth-child(4) {
     color: #707070;
     margin-right: 40px;
 }
 
-.Management div li:nth-child(4) {
+.Management div li:nth-child(5) {
     margin-right: 20px;
 }
 
