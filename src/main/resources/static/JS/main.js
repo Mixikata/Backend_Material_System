@@ -204,7 +204,7 @@ async function render(judge, searchName = 0) {
             <div>杨氏模量:${result.data.data.young}</div>
             <div>分析结果:${result.data.data.analysisResult}</div>
             <div>结果图片:</br>
-            <img src="data:image/jpg;base64,${result.data.data.resultImage}">
+            <img src="data:image/png;base64,${result.data.data.resultImage}">
             </div>
             `
             //项目管理内容页返回
