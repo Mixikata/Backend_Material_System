@@ -334,7 +334,8 @@ header form {
 }
 
 .Management div li:nth-child(2) {
-    width: 450px;
+    width: 300px;
+    height: 54px;
     margin-right: 10px;
     text-align: left;
     text-overflow: ellipsis;
@@ -342,8 +343,9 @@ header form {
 }
 
 .Management div li:nth-child(3) {
-    width: 110px;
-    font-size: 10px;
+    width: 240px;
+    height: 54px;
+    font-size: 6px;
     color: #4b4b4b;
     margin-right: 70px;
 }

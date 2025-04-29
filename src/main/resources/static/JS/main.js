@@ -213,7 +213,7 @@ newBTN2.addEventListener('click', function (e) {
         url: 'http://localhost:8080/project/delete',
         method: 'DELETE',
         params: {
-            projectId: MCarr.join(",")
+            projectId: MCarr.join(',')
         }
     }).then(result => {
         render(1)
@@ -244,7 +244,6 @@ document.querySelectorAll('.checkResult').forEach(item => item.addEventListener(
             projectId: e.target.dataset.projectId
         }
     }).then(result => {
-        const imgURL = atob(result.data.data.resultImage)
         document.querySelector('.Mitem').style.display = "none"
         resultPage.style.display = "block"
         resultPage.innerHTML =
@@ -267,8 +266,8 @@ document.querySelectorAll('.checkResult').forEach(item => item.addEventListener(
             <div>热值:${result.data.data.caloricValue}</div>
             <div>杨氏模量:${result.data.data.young}</div>
             <div>分析结果:${result.data.data.analysisResult}</div>
-            <div>结果图片:
-            <img src="${imgURL}">
+            <div>结果图片:</br>
+            <img src="data:image/jpg;base64,${result.data.data.resultImage}">
             </div>`
         const backBtn = document.querySelector('.Result button')
     })
@@ -279,4 +278,3 @@ document.querySelector('.Result button').addEventListener('click', function () {
     resultPage.style.display = "none"
     document.querySelectorAll('.Mitem').forEach(item => { item.style.display = "flex" })
 })
-
