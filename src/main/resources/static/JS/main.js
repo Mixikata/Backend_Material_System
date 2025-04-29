@@ -183,6 +183,7 @@ async function render(judge, searchName = 0) {
             document.querySelectorAll('.Mitem').forEach(item=>item.style.display = "none")
             document.querySelector('.Result').style.display = "block"
             document.querySelector('.Result button').style.display="block"
+            document.querySelector('.main').style.minHeight="1800px"
             document.querySelector('.Result').innerHTML =
                 `<button>返回</button>
             <div>项目名称:${result.data.data.projectName}</div>
@@ -203,13 +204,15 @@ async function render(judge, searchName = 0) {
             <div>热值:${result.data.data.caloricValue}</div>
             <div>杨氏模量:${result.data.data.young}</div>
             <div>分析结果:${result.data.data.analysisResult}</div>
-            <div>结果图片:</br>
+            <br><br><br><br>
+            <div>结果图片:
             <img src="data:image/png;base64,${result.data.data.resultImage}">
             </div>
             `
             //项目管理内容页返回
             document.querySelector('.Result button').addEventListener('click', function () {
                 document.querySelector('.Result').style.display = "none"
+                document.querySelector('.main').style.minHeight="746px"
                 document.querySelectorAll('.Mitem').forEach(item => { item.style.display = "flex" })
             })
         })
