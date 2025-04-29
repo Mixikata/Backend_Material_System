@@ -157,11 +157,11 @@ async function render(judge, searchName = 0) {
         const div = document.createElement('div')
         div.classList.add("Mitem")
         div.innerHTML =
-            `<li><input type="checkbox" data-projectId=${result.data.data[i].projectId}></li>
+            `<li><input type="checkbox" data-project-id=${result.data.data[i].projectId}></li>
             <li class="projectName">${result.data.data[i].projectName}</li>
             <li class="">${result.data.data[i].createTime}</li>
-            <li class="checkResult" data-projectId=${result.data.data[i].projectId}>查看结果</li>
-            <li><span class="iconfont icon-shanchu" data-projectId=${result.data.data[i].projectId}></span></li>`
+            <li class="checkResult" data-project-id=${result.data.data[i].projectId}>查看结果</li>
+            <li><span class="iconfont icon-shanchu" data-project-id=${result.data.data[i].projectId}></span></li>`
         Management.appendChild(div)
         if (BTNswitch === 0) {
             BTNswitch = 1
@@ -203,7 +203,7 @@ newBTN1.addEventListener('click', function () {
 })
 newBTN2.addEventListener('click', function (e) {
     const Mchecked = document.querySelectorAll('.Management div input')
-    const MCarr = []
+    let MCarr = []
     for (let i = 0; i < Mchecked.length; i++) {
         if (Mchecked[i].checked === true) {
             MCarr.push(Mchecked[i].dataset.projectId)
@@ -213,7 +213,7 @@ newBTN2.addEventListener('click', function (e) {
         url: 'http://localhost:8080/project/delete',
         method: 'DELETE',
         params: {
-            projectId: MCarr
+            projectId: MCarr.join(",")
         }
     }).then(result => {
         render(1)

@@ -40,20 +40,6 @@ public class ProjectController {
                 }).toList());
     }
 
-    //项目分析结果搜索
-    @GetMapping("/select")
-    public Result select(String projectName) {
-        List<Project> projects = projectService.list(new LambdaQueryWrapper<Project>().like(Project::getProjectName, projectName));
-        if (projects.isEmpty()) {
-            return Result.error("该项目不存在");
-        }
-        return Result.success(projects.stream()
-                .map(project -> {
-                    ProjectVo projectVo = new ProjectVo();
-                    BeanUtils.copyProperties(project, projectVo);
-                    return projectVo;
-                }).toList());
-    }
 
     //项目分析结果删除
     @DeleteMapping("/delete")

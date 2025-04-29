@@ -11,16 +11,14 @@ public class InvokeUtil {
         RestTemplate restTemplate = new RestTemplate();
         HealthStatus response = restTemplate.getForObject("http://localhost:5000/api/health", HealthStatus.class);
         if (response == null || response.getStatus().equals("error")) {
-            log.error("Python脚本未启动或运行异常");
-            throw new RuntimeException("Python脚本未启动或运行异常");
+            throw new RuntimeException("Python is not running or error");
         }
-        log.info("Python脚本已启动");
+        log.info("Python is running");
         AnalysisResult analysisResult = restTemplate.postForObject("http://localhost:5000/api/predict", project, AnalysisResult.class);
         if (analysisResult == null || !analysisResult.isSuccess()) {
-            log.error("Python脚本分析失败");
-            throw new RuntimeException("Python脚本分析失败");
+            throw new RuntimeException("Python is failed");
         }
-        log.info("Python脚本分析成功");
+        log.info("Python is success");
         String[] results = new String[2];
         // 处理分析结果
         StringBuilder result = new StringBuilder();
