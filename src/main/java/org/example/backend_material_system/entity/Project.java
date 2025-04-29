@@ -22,7 +22,7 @@ public class Project implements Serializable {
     private Double tensileStrength;      // 抗拉强度
     private Double elongation;           // 延展率
     private Double impactToughness;      // 冲击韧性
-    private Double rigidity;             // 刚性
+
     private Double fatigueStrength;      // 疲劳强度
     private Double caloricValue;         // 热值
     private Double young;                // 杨氏模量
