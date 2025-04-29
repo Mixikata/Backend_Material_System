@@ -14,11 +14,13 @@ public class InvokeUtil {
             log.error("Python脚本未启动或运行异常");
             throw new RuntimeException("Python脚本未启动或运行异常");
         }
+        log.info("Python脚本已启动");
         AnalysisResult analysisResult = restTemplate.postForObject("http://localhost:5000/api/predict", project, AnalysisResult.class);
         if (analysisResult == null || !analysisResult.isSuccess()) {
             log.error("Python脚本分析失败");
             throw new RuntimeException("Python脚本分析失败");
         }
+        log.info("Python脚本分析成功");
         String[] results = new String[2];
         // 处理分析结果
         StringBuilder result = new StringBuilder();
